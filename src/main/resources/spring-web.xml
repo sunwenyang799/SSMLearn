@@ -15,7 +15,18 @@
         http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
         http://www.springframework.org/schema/tx 
         http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
-
+    <!-- 开启SpringMVC注解模式 -->
+    <!-- 简化配置： 
+        (1)自动注册DefaultAnootationHandlerMapping,AnotationMethodHandlerAdapter 
+        (2)提供一些列：数据绑定，数字和日期的format @NumberFormat, @DateTimeFormat, xml,json默认读写支持 
+    -->
+    <mvc:annotation-driven />
+    
+    <!-- 静态资源默认servlet配置
+        (1)加入对静态资源的处理：js,gif,png
+        (2)允许使用"/"做整体映射
+     -->
+     <mvc:default-servlet-handler/>
 	<!--扫描controller层 user use-default-filters默认扫描全部注释 -->
 	<context:component-scan
 		base-package="com.ssm.controller" use-default-filters="true">
@@ -29,7 +40,7 @@
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!--配置 jsp的前缀 -->
-		<property name="prefix" value="/view/"></property>
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<!--配置jsp的后缀 -->
 		<property name="suffix" value=".jsp"></property>
 	</bean>

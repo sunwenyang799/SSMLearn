@@ -10,6 +10,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ssm.dao.UserDao;
 import com.ssm.model.User;
 import com.ssm.service.UserService;
 
@@ -22,14 +23,14 @@ import com.ssm.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    private UserService userServcie;
+    private UserDao userDao;
 
     /**查询全部用户
      * @see com.ssm.service.UserService#selectAll()
      */
     public List<User> selectAll() {
 
-        return userServcie.selectAll();
+        return userDao.selectAll();
     }
 
     /** 根据id查询用户
@@ -37,7 +38,7 @@ public class UserServiceImpl implements UserService {
      */
     public User selectById(String id) {
 
-        return userServcie.selectById(id);
+        return userDao.selectById(id);
     }
 
     /** 添加用户
@@ -45,7 +46,7 @@ public class UserServiceImpl implements UserService {
      */
     public int addUser(User user) {
 
-        return userServcie.addUser(user);
+        return userDao.addUser(user);
     }
 
     /** 修改用户
@@ -53,7 +54,7 @@ public class UserServiceImpl implements UserService {
      */
     public int updateUser(User user) {
 
-        return userServcie.updateUser(user);
+        return userDao.updateUser(user);
     }
 
     /** 删除用户
@@ -61,7 +62,7 @@ public class UserServiceImpl implements UserService {
      */
     public int deleteUser(User user) {
 
-        return userServcie.deleteUser(user);
+        return userDao.deleteUser(user);
     }
 
 }

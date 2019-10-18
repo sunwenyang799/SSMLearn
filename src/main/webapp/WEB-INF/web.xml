@@ -5,38 +5,41 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	id="WebApp_ID" version="3.1"
+	id="WebApp_ID" version="3.1">
+	<!--欢迎页  -->
+    <welcome-file-list>
+
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
     
-        <!--加载spring容器 -->
+    <!--配置spring  -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:applicationContext.xml</param-value>
 	</context-param>
-
+	
 	<!--监听 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-
-	<!-- springmvc前端控制器 -->
+	
 	<servlet>
-		<servlet-name>springmvc</servlet-name>
+		<servlet-name>seckill-dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- 配置springMVC需要加载的配置文件 spring-dao.xml,spring-service.xml,spring-web.xml 
+			Mybatis - > spring -> springmvc -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:springmvc.xml</param-value>
+			<param-value>classpath:spring-web.xml</param-value>
 		</init-param>
-		<load-on-startup>1</load-on-startup>
+		<!-- 配置服务器启动后立即加载Spring MVC配置文件 -->
+        <load-on-startup>1</load-on-startup>
 	</servlet>
+	
 	<servlet-mapping>
-		<servlet-name>springmvc</servlet-name>
+		<servlet-name>seckill-dispatcher</servlet-name>
+		<!-- 默认匹配所有的请求 -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
-	<servlet-mapping>
-		<servlet-name>default</servlet-name>
-		<url-pattern>*.js</url-pattern>
-	</servlet-mapping>
-
 
 </web-app>

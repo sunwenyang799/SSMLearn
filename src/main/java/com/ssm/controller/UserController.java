@@ -25,13 +25,14 @@ import com.ssm.service.UserService;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
     @Autowired
-    private UserService userservice;
+    private UserService userService;
 
     @ResponseBody
-    @RequestMapping(value = "/select", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public List<User> selectAll() {
-        return userservice.selectAll();
+        return userService.selectAll();
 
     }
 }
