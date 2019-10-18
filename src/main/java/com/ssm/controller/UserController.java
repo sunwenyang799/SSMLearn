@@ -52,4 +52,18 @@ public class UserController {
         return userService.selectAll();
 
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/register")
+    public String register(User user) {
+
+        int a = userService.addUser(user);
+        if (a == 1) {
+
+            return "/user/login";
+        } else {
+            return "fail";
+        }
+
+    }
 }

@@ -6,8 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/index.css" />
 <script src="js/index.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/index.css" />
 <title>SSM整合</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
 			用户名:<input type="text" id = "username" name = "username"> 
 			密码:<input type="password" id = "password" name = "">
 			<button type = "button" onclick = "login()" >登录</button>
-			<button type = "button" >注册</button>
+			<button type = "button" onclick = "goRegister()">注册</button>
 		</div>
 		</form>
 
