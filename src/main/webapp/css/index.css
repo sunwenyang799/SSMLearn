@@ -1,0 +1,28 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0
+}
+.fd-nav h1{
+	color: red;
+	text-align: center;
+	margin-top: 300px
+}
+.fd-contanier{
+	float:left;
+	font-size:20px;
+	width:60%;
+	height:500px;
+	padding-left:580px;
+	text-align: center;
+	line-height: 100px
+}
+input{
+	display: block;
+	margin:0 auto;
+	height:30px
+}
+button {
+	height:50px;
+	width:100px
+}

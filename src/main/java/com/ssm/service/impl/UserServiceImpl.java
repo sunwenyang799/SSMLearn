@@ -41,6 +41,17 @@ public class UserServiceImpl implements UserService {
         return userDao.selectById(id);
     }
 
+    /** (non-Javadoc)
+     * @see com.ssm.service.UserService#login(com.ssm.model.User)
+     */
+    public User login(User user) {
+        User userLogin = userDao.login(user);
+        if (userLogin != null) {
+            return userLogin;
+        }
+        return null;
+    }
+
     /** 添加用户
      * @see com.ssm.service.UserService#addUser(com.ssm.model.User)
      */

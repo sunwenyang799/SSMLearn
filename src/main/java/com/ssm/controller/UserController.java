@@ -7,10 +7,13 @@ package com.ssm.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ssm.model.User;
@@ -30,7 +33,21 @@ public class UserController {
     private UserService userService;
 
     @ResponseBody
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "login")
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session) {
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        if (userService.login(user) != null) {
+            user = userService.login(user);
+            session.setAttribute("user", user);
+            return "login";
+        }
+        return "erro";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/selectAll", method = RequestMethod.GET)
     public List<User> selectAll() {
         return userService.selectAll();
 

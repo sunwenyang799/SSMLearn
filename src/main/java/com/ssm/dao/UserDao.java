@@ -22,6 +22,9 @@ public interface UserDao {
     //  根据用户id查询用户
     public User selectById(String id);
 
+    //  根据用户名,密码 登录
+    public User login(User user);
+
     //    添加用户
     public int addUser(User user);
 
