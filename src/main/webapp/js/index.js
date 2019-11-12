@@ -13,11 +13,11 @@ function login() {
 	var url = "http://localhost:8080/SSMLearn/user/login?username=" + username
 			+ "&password=" + password;
 
-	$.get(url, function(data) {
-		if (data == "login") {
+	$.get(url, function(result) {
+		if (result.success) {
 			window.location.href = "jsp/login.jsp";
 		} else {
-			alert(data);
+			window.location.href = "jsp/error.jsp";
 		}
 	})
 };

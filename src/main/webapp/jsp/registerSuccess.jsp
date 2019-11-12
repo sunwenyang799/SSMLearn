@@ -4,12 +4,18 @@
 <html>
 <head>
 <script type="text/javascript">
-var user = <%session.getAttribute("user");%>
+$(document).ready(function(){
+	var count = 5;
+	settimeout(function(){
+		count--;
+	},1000)
+	window.href.location = "../index.jsp";
+})
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>登录</title>
+<title>Insert title here</title>
 </head>
 <body>
-    <h1>Hello ${user.name}</h1>
+        <h3>注册成功,${count}s后将返回首页</h3>
 </body>
 </html>

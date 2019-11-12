@@ -6,14 +6,14 @@
 .fd-nav h1{
 	color: red;
 	text-align: center;
-	margin-top: 300px
+	margin-top: 250px;
 }
 .fd-contanier{
 	float:left;
 	font-size:20px;
-	width:60%;
+	width:100%;
 	height:500px;
-	padding-left:580px;
+    margin:0 auto;
 	text-align: center;
 	line-height: 100px
 }

@@ -3,13 +3,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript">
-var user = <%session.getAttribute("user");%>
-</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>登录</title>
+<title>Insert title here</title>
 </head>
 <body>
-    <h1>Hello ${user.name}</h1>
+    <h1 style="text-align:center;margin-top:400px;color:red">出错了,请重试....</h1>
 </body>
 </html>
