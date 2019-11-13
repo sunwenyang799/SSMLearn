@@ -6,6 +6,7 @@
 package com.ssm.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -72,8 +73,10 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/register")
-    public Map<String, Object> register(HttpServletRequest request, HttpSession httpSession, HttpServletResponse response) {
+    public Map<String, Object> register(HttpServletRequest request, HttpSession httpSession,
+            HttpServletResponse response) throws Exception {
         Map<String, Object> result = new HashedMap();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String name = request.getParameter("name");
@@ -81,13 +84,13 @@ public class UserController {
         String sex = request.getParameter("sex");
         String birthday = request.getParameter("birthday");
         User user = new User();
-        user.setId(UUID.randomUUID().toString());
+        user.setId(UUID.randomUUID().toString().replace("-", ""));
         user.setUsername(username);
         user.setPassword(password);
         user.setName(name);
-        user.setAge(Integer.valueOf(age));
+        user.setAge(Integer.parseInt(age));
         user.setSex(sex);
-        //        user.setBirthday(new Date(birthday));
+        user.setBirthday(simpleDateFormat.parse(birthday));
         logger.info(user.toString());
 
         result.put("user", user);

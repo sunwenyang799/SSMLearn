@@ -9,12 +9,16 @@
 	src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../js/register.js"></script>
 <style type="text/css">
+html{
+    background-image: url("../img/index.jpg");
+    color:ivory;
+}
 .container {
-	border: 1px black solid;
+	border: 1px  solid;
 	margin: 200px auto;
 	text-align: center;
-	width:25%;
-	line-height:50px;
+	width: 25%;
+	line-height: 50px;
 }
 
 form {
@@ -25,17 +29,23 @@ form {
 table {
 	margin: 10px auto;
 }
-td{
-    text-align:left;
-    
+
+td {
+	text-align: left;
 }
+
 button {
+    border-radius:45%;
+    border-color:grey;
 	height: 40px;
-	width: 60px
+	width: 60px;
+	background-color: cornsilk;
 }
-span{
-    color:red;
-    }
+
+span {
+	color: red;
+	font-size: 14px;
+}
 </style>
 <title>注册</title>
 </head>
@@ -46,37 +56,51 @@ span{
 			<table>
 				<tr>
 					<td>请填写账号:</td>
-					<td><input type="text" id="username" name="username" placeholder="请输入账号"></td>
-					<td><span>*</span><td>
+					<td><input type="text" id="username" name="username"
+						placeholder="请输入账号"
+						onblur="checkUser('username','usernamespan','用户名');"></td>
+					<td><span class="usernamespan">*</span>
+					<td>
 				</tr>
 				<tr>
 					<td>请填写密码:</td>
-					<td><input type="password" name="password" id="password" placeholder="请输入密码"></td>
-					<td><span>*</span><td>
+					<td><input type="password" name="password" id="password"
+						placeholder="请输入密码"
+						onblur="checkUser('password','passwordspan','密码');"></td>
+					<td><span class="passwordspan">*</span>
+					<td>
 				</tr>
 				<tr>
 					<td>请填写姓名:</td>
-					<td><input type="text" id="name" name="name" placeholder="请输入姓名"></td>
-					<td><span>*</span><td>
+					<td><input type="text" id="name" name="name"
+						placeholder="请输入姓名" onblur="checkUser('name','namespan','姓名');"></td>
+					<td><span class="namespan">*</span>
+					<td>
 				</tr>
 				<tr>
 					<td>请填写年龄:</td>
-					<td><input type="text" id="age" name="age" placeholder="请输入年龄"></td>
-					<td><span>*</span><td>
+					<td><input type="text" id="age" name="age" placeholder="请输入年龄"
+						onblur="checkUser('age','agespan','年龄');"></td>
+					<td><span class="agespan">*</span>
+					<td>
 				</tr>
 				<tr>
 					<td>请选择性别:</td>
+					
 					<td>
-					    男<input type="radio" value="男" name="sex">
-					    女<input type="radio" value="女" name="sex"></td>
-
+					<label>男</label>
+					<input type="radio" name="sex" value="男">
+					<label>女</label>
+					 <input
+						type="radio" name="sex" value="女"></td>
 				</tr>
 				<tr>
 					<td>请填写出生日期:</td>
-					<td><input type="date" name="birthday" placeholder="请输入出生日期" id = "birthday"></td>
+					<td><input type="date" name="birthday" placeholder="请输入出生日期"
+						id="birthday"></td>
 				</tr>
 				<tr>
-					<td><button type="button" onclick = "register()">提交</button></td>
+					<td><button type="button" onclick="register()">提交</button></td>
 					<td><button type="reset">重置</button></td>
 					<td><button type="button" onclick="returnIndex()">返回</button></td>
 				</tr>
