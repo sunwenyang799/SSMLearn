@@ -66,8 +66,16 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/selectAll", method = RequestMethod.GET)
-    public List<User> selectAll() {
-        return userService.selectAll();
+    public Map<String, Object> selectAll() {
+        Map<String, Object> result = new HashedMap();
+        List<User> userList = userService.selectAll();
+        result.put("userList", userList);
+        if (userList != null) {
+            result.put("success", true);
+        } else {
+            result.put("success", false);
+        }
+        return result;
 
     }
 

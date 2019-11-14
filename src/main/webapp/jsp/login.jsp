@@ -14,5 +14,14 @@ var user = '<%=session.getAttribute("user")%>'
 	<div class="fd-header">
 		<span>欢迎您, ${user.name}</span>
 	</div>
+	<div class = "fd-container-left">
+	   <ul>
+	       <li>用户管理</li>
+	       <li>添加用户</li>
+	   </ul>
+	</div>
+	<div class="fd-container-right">
+	   <iframe frameborder="0" scrolling="yes" style="width:100%;height:100%" src="showUser.jsp" id="main"></iframe>  
+	</div>
 </body>
 </html>
