@@ -5,6 +5,7 @@
  */
 package com.ssm.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,7 +14,9 @@ import java.util.Date;
  * @version 1.0
  *
  */
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     //    id
     private String id;
 
@@ -34,6 +37,19 @@ public class User {
 
     //    出生日期
     private Date birthday;
+
+    public User(String id, String username, String password, String name, Integer age, String sex, Date birthday) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.birthday = birthday;
+    }
+
+    public User() {
+    }
 
     /**
      * @return the id

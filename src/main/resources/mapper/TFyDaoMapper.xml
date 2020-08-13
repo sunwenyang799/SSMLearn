@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.TFyDao">
+	<resultMap type="com.ssm.model.TFy" id="fy" >
+		<result property="bh" column="c_bh" />
+		<result property="Mc" column="c_mc" />
+		<result property="pBh" column="c_parent_bh" />
+		<result property="Fjm" column="c_fjm" />
+		<result property="Szsf" column="c_szsf" />
+	</resultMap>
+
+	<select id = "getAllFY" resultMap ="fy" >
+		select c_bh,c_mc,c_parent_bh,c_fjm,c_szsf from t_fy where n_yx = 1 and c_szsf = '新疆'  order by cast(c_bh as int);
+	</select>
+
+	<insert id="addFy" parameterType="com.ssm.model.TFy">
+		insert into t_fy values(#{bh})
+	</insert>
+</mapper>

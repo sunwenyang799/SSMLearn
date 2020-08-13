@@ -5,16 +5,8 @@
  */
 package com.ssm.controller;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
+import com.ssm.model.User;
+import com.ssm.service.UserService;
 import org.apache.commons.collections.map.HashedMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,8 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ssm.model.User;
-import com.ssm.service.UserService;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * UserController
@@ -43,7 +42,7 @@ public class UserController {
 
     //  有@ResponseBody以json,string格式返回;无@ResponseBody以页面形式返回
     @ResponseBody
-    @RequestMapping(value = "login")
+    @RequestMapping(value = "/login")
     public Map<String, Object> login(HttpServletRequest request, HttpSession httpSession, HttpServletResponse response) throws IOException {
         Map<String, Object> result = new HashedMap();
         String username = request.getParameter("username");
@@ -111,5 +110,19 @@ public class UserController {
             result.put("success", false);
         }
         return result;
+    }
+    
+    @ResponseBody
+    @RequestMapping(value="test",method=RequestMethod.POST)
+    public Map<String,String>  test(HttpServletRequest request,HttpServletResponse response) {
+    	String aa = request.getParameter("aa");
+    	Map<String,String> map = new HashedMap();
+    	File file = new File("F://test.txt");
+    	map.put("aa", "11");
+    	boolean delete = file.delete();
+    	if(delete) {
+    		logger.error("删除失败");
+    	}
+    	return  map;
     }
 }
